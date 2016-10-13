@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mSS-hn-lz7">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--我的-->
+        <scene sceneID="2Tm-pc-bYc">
+            <objects>
+                <navigationController id="mSS-hn-lz7" userLabel="我的" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="btn_user_normal" selectedImage="btn_user_selected" id="bRO-Tg-Wns"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <fixedSimulatedSizeMetrics key="simulatedDestinationMetrics">
+                        <size key="portraitSize" width="375" height="667"/>
+                        <size key="landscapeSize" width="375" height="667"/>
+                    </fixedSimulatedSizeMetrics>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VyK-M1-oE0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mIO-a6-HqM" kind="relationship" relationship="rootViewController" id="dkz-cK-nzU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odX-jT-iQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="1336"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="faE-ty-jCD">
+            <objects>
+                <viewController id="mIO-a6-HqM" customClass="ProfileViewController" customModule="DYZBPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4hw-G6-eGV"/>
+                        <viewControllerLayoutGuide type="bottom" id="eDW-ig-Ewh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jNg-7p-csB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Poy-bd-Rjy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adh-9G-ct2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1335"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_user_normal" width="24" height="24"/>
+        <image name="btn_user_selected" width="24" height="24"/>
+    </resources>
+</document>
