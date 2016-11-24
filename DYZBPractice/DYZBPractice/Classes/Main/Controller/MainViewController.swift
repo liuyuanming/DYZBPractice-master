@@ -9,27 +9,21 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
+    
+    // MARK:- 下边这两个方法目的是不使用iOS9 Storyboard Reference时使用
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        addChildVC("Home")
+        addChildVC("Live")
+        addChildVC("Follow")
+        addChildVC("Profile")
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func addChildVC(_ storyName: String){ // '_'的目的是在调用的时候不写 storyName
+        let childViewController = UIStoryboard(name: storyName, bundle: nil).instantiateInitialViewController()!
+        
+        self.addChildViewController(childViewController)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
