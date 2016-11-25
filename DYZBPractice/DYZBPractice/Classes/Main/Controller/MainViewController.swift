@@ -21,7 +21,7 @@ class MainViewController: UITabBarController {
         addChildVC("Profile")
         
     }
-    func addChildVC(_ storyName: String){ // '_'的目的是在调用的时候不写 storyName
+    fileprivate func addChildVC(_ storyName: String){ // '_'的目的是在调用的时候不写 storyName
         let childViewController = UIStoryboard(name: storyName, bundle: nil).instantiateInitialViewController()!
         
         self.addChildViewController(childViewController)
