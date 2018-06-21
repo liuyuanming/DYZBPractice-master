@@ -8,71 +8,71 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+private let kTitleViewH : CGFloat = 40
 
+class HomeViewController: UIViewController {
+    
+    fileprivate lazy var pageTitleView : PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavgationBarH, width: kScreenW, height: kTitleViewH)
+        let titles = ["推荐", "游戏", "娱乐", "趣玩"]
+        let titleView  = PageTitleView(frame: titleFrame, titles: titles)
+        titleView.delegate = self
+        return titleView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItems()
+        
+        // 设置UI界面
+        setUpUI()
+    }
+}
+
+extension HomeViewController {
+    fileprivate func setUpUI() {
+        
+        // 1.设置导航栏
+        setUpNavigationBar()
+        
+        // 2.添加titleView
+        self.view.addSubview(pageTitleView)
+        
+        // 3.添加ContentView
         
     }
     
-    private func setNavigationItems() {
-        setNavigationLeftItem()
-        setNavigationRightItem()
-    }
-    
-    private func setNavigationLeftItem() {
-        
-//        let logoBarButtonItem = UIBarButtonItem(imageName: "logo", hlImageName: nil, size: size, target: self, action: #selector(leftItemClicked))
-//        
-//            UIBarButtonItem(image: UIImage(named: "logo"), style: .plain, target: self, action: #selector(self.leftItemClicked))
-//        navigationItem.leftBarButtonItem = logoBarButtonItem
+    fileprivate func setUpNavigationBar() {
+        // 1.设置左侧的item
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo", hlImageName: "", size: CGSize.zero, target: self, action: #selector(leftItemClicked))
         
-    }
-    private func setNavigationRightItem() {
+        // 2.设置右侧的item
         let size = CGSize(width: 40, height: 44)
-//        let scanBarButtonItem = UIBarButtonItem.createBarButtonItem(imageName: "Image_scan", hlImageName: "Image_scan_click", size: size, target: self, action: #selector(rightScanItemClicked))
-//        
-//        let searchBarButtonItem = UIBarButtonItem.createBarButtonItem(imageName: "btn_search", hlImageName: "btn_search_click", size: size, target: self, action: #selector(rightSearchItemClicked))
-//        
-//        let historyBarButtonItem = UIBarButtonItem.createBarButtonItem(imageName: "image_my_history", hlImageName: "image_my_history_click", size: size, target: self, action: #selector(rightHistoryItemClicked))
-        
-        // 使用便利构造函数创建
         let scanBarButtonItem = UIBarButtonItem(imageName: "Image_scan", hlImageName: "Image_scan_click", size: size, target: self, action: #selector(rightScanItemClicked))
-        
         let searchBarButtonItem = UIBarButtonItem(imageName: "btn_search", hlImageName: "btn_search_clicked", size: size, target: self, action: #selector(rightSearchItemClicked))
-        
         let historyBarButtonItem = UIBarButtonItem(imageName: "image_my_history", hlImageName: "Image_my_history_click", size: size, target: self, action: #selector(rightHistoryItemClicked))
-        
         navigationItem.rightBarButtonItems = [historyBarButtonItem, searchBarButtonItem, scanBarButtonItem]
     }
-    @objc private func leftItemClicked() {
+    
+    @objc fileprivate func leftItemClicked() {
         print("leftItemClicked")
     }
-    @objc private func rightScanItemClicked() {
+    
+    @objc fileprivate func rightScanItemClicked() {
         print("rightScanItemClicked")
     }
-    @objc private func rightSearchItemClicked() {
+    
+    @objc fileprivate func rightSearchItemClicked() {
         print("rightSearchItemClicked")
     }
-    @objc private func rightHistoryItemClicked() {
+    
+    @objc fileprivate func rightHistoryItemClicked() {
         print("rightHistoryItemClicked")
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+// MARK:- 遵守PageTitleViewDelegate协议
+extension HomeViewController : PageTitleViewDelegate {
+    func pageTItleView(_ titleView: PageTitleView, selectedIndex index: Int) {
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
